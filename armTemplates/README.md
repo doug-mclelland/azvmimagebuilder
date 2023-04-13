@@ -22,7 +22,7 @@ e.g.
 Once you have copied the parameters file locally and populated, note the Image Template Name, you will need this to invoke the image build.
 
 **!! NOTE !!**
-* Ensure the Shared Image Gallery and Image Definition is created before you continue!! See the [SIG Quick QuickStarts](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image).
+* Ensure the Shared Image Gallery and Image Definition is created before you continue!! See the [SIG Quick QuickStarts](https://github.com/doug-mclelland/azvmimagebuilder/tree/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image).
 * If using a source Platform Image, the version cannot be 'latest'.
 
 ### Submit the Image Template to the VM Image Builder
@@ -31,7 +31,7 @@ Once you have copied the parameters file locally and populated, note the Image T
 
 declare resourceGroupName=""
 declare deploymentName=""
-declare templateFilePath="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/armTemplates/azplatform_image_deploy_sigmdi.json"
+declare templateFilePath="https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/armTemplates/azplatform_image_deploy_sigmdi.json"
 declare parametersFilePath="pathToLocalParamsFile.json"
 
 az group deployment create --name $deploymentName --resource-group $resourceGroupName --template-uri $templateFilePath --parameters $parametersFilePath 

@@ -1,6 +1,6 @@
 # Create a Windows Custom Image that will use an Azure User-Assigned Managed Identity to seemlessly access files Azure Storage (DRAFT)
 
->>> NOTE!!!! THIS ARTICLE IS IN DRAFT, it has not been tested end to end, there will be bugs, expect this to be fully tested mid Decemeber 2019! The Linux version of the article is fully tested, and available [here](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
+>>> NOTE!!!! THIS ARTICLE IS IN DRAFT, it has not been tested end to end, there will be bugs, expect this to be fully tested mid Decemeber 2019! The Linux version of the article is fully tested, and available [here](https://github.com/doug-mclelland/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
 
 AIB supports using scripts, or copying files from multiple locations, such as GitHub and Azure storage etc. 
 
@@ -150,7 +150,7 @@ $msiResID="/subscriptions/$subscriptionID+/resourcegroups/$imageResourceGroup/pr
 ```PowerShell
 # download the example and configure it with the variables below:
 
-$templateUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/6_PowerShell_deploymentsSIG/armTemplateWinSIG.json"
+$templateUrl="https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/solutions/6_PowerShell_deploymentsSIG/armTemplateWinSIG.json"
 $templateFilePath = "armTemplateWinSIG.json"
 
 Invoke-WebRequest -Uri $templateUrl -OutFile $templateFilePath -UseBasicParsing
@@ -241,4 +241,4 @@ The image build for this example will take approximately 30mins, when you query 
     ```
 
 * Want to try more???
-* Image Builder does support deployment through Azure Resource Manager, see here in the repo for [examples](https://github.com/danielsollondon/azvmimagebuilder/tree/master/armTemplates), you will also see how you can use a RHEL ISO source too, and manu other capabilities.
+* Image Builder does support deployment through Azure Resource Manager, see here in the repo for [examples](https://github.com/doug-mclelland/azvmimagebuilder/tree/master/armTemplates), you will also see how you can use a RHEL ISO source too, and manu other capabilities.

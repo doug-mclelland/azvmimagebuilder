@@ -1,6 +1,6 @@
 # Azure VM Image Builder Permissions Explained and Requirements
 
-> **MAY 2020 SERVICE ALERT** - Existing users, please ensure you are compliant this [Service Alert by 26th May!!!](https://github.com/danielsollondon/azvmimagebuilder#service-update-may-2020-action-needed-by-26th-may---please-review)
+> **MAY 2020 SERVICE ALERT** - Existing users, please ensure you are compliant this [Service Alert by 26th May!!!](https://github.com/doug-mclelland/azvmimagebuilder#service-update-may-2020-action-needed-by-26th-may---please-review)
 
 This document is to explain permissions granted and required for Azure VM Image Builder Service (AIB), covering these topics:
 
@@ -102,7 +102,7 @@ The examples below show creating a Role Definition from the actions above, but t
 #### Setting AIB user-dentity Permissions to use source custom image and distribute a custom image
 ```bash
 # download user definition template
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
+curl https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
 
 # update template
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" aibRoleImageCreation.json
@@ -128,7 +128,7 @@ az role assignment create \
 ```
 #### Setting AIB SPN Permissions to allow it to use an existing VNET
 ```bash
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json -o aibRoleNetworking.json
+curl https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json -o aibRoleNetworking.json
 
 # update template
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" aibRoleNetworking.json
@@ -169,7 +169,7 @@ $idenityNamePrincipalId=$(Get-AzUserAssignedIdentity -ResourceGroupName $imageRe
 # assign permissions for identity to distribute images
 This command will download and update the template with the parameters specified earlier.
 ```powerShell
-$aibRoleImageCreationUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
+$aibRoleImageCreationUrl="https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
 $aibRoleImageCreationPath = "aibRoleImageCreation.json"
 
 # download config
@@ -198,7 +198,7 @@ https://docs.microsoft.com/en-us/azure/role-based-access-control/troubleshooting
 # set unique role name
 $networkRoleDefName="Azure Image Builder Network Def"+$timeInt
 
-$aibRoleNetworkingUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json"
+$aibRoleNetworkingUrl="https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json"
 $aibRoleNetworkingPath = "aibRoleNetworking.json"
 
 # download configs
@@ -223,7 +223,7 @@ If you want to seemlessly authenticate with Azure Storage, and use Private Conta
 
 >>> Note! AIB only uses the identity at image template submission time, the build VM does not have access to the identity during image build!!!
 
-We have a [quick start](XXXXXXXhttps://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage#create-a-custom-image-that-will-use-an-azure-user-assigned-managed-identity-to-seemlessly-access-files-azure-storage) that walks through how to connect to set this up, but in summary, once you have created User-Assigned Managed Identity, you then give rights for it to read from the storage account:
+We have a [quick start](XXXXXXXhttps://github.com/doug-mclelland/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage#create-a-custom-image-that-will-use-an-azure-user-assigned-managed-identity-to-seemlessly-access-files-azure-storage) that walks through how to connect to set this up, but in summary, once you have created User-Assigned Managed Identity, you then give rights for it to read from the storage account:
 
 ```bash
 az role assignment create \

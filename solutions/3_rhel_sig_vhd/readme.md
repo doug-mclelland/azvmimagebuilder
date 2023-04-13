@@ -19,7 +19,7 @@ There are multiple ways you can achieve this, we are going to show how you can s
 * Distributing the Image
  
 ### Creating the Image
-There are multiple ways you can create the image, you can immediately get started using the [Quick QuickStart examples](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/6_Creating_a_Custom_Image_using_Red_Hat_Subscription_Licences_to_VHD), then get the VHD URL and copy this to Azure Stack. 
+There are multiple ways you can create the image, you can immediately get started using the [Quick QuickStart examples](https://github.com/doug-mclelland/azvmimagebuilder/tree/master/quickquickstarts/6_Creating_a_Custom_Image_using_Red_Hat_Subscription_Licences_to_VHD), then get the VHD URL and copy this to Azure Stack. 
 
 ### Distributing the Image
 There are multiple copy options for [Azure Stack](https://docs.microsoft.com/en-us/azure-stack/user/azure-stack-storage-transfer).

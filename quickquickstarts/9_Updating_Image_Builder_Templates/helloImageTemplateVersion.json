@@ -19,14 +19,14 @@
             {
                 "type": "Shell",
                 "name": "RunScripts01",
-                "scriptUri": "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh"
+                "scriptUri": "https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/quickquickstarts/customizeScript.sh"
             },
         
             
             {
                 "type": "File",
                 "name": "downloadBuildArtifacts",
-                "sourceUri": "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html",
+                "sourceUri": "https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/quickquickstarts/exampleArtifacts/buildArtifacts/index.html",
                 "destination":"/tmp/index.html"
             },
 

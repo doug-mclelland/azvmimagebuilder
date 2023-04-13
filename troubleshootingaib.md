@@ -112,14 +112,14 @@ Microsoft.VirtualMachineImages/imageTemplates 'helloImageTemplateforSIG01' faile
 ```
 Cause: In most cases, this happens due to missing permissions
 
-Action: Ensure AIB has permissions to the source image\SIG resource group, distribution image\SIG resource, and the storage account\container\blob that the File customizer is accessing. Review [permissions documentation](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements).
+Action: Ensure AIB has permissions to the source image\SIG resource group, distribution image\SIG resource, and the storage account\container\blob that the File customizer is accessing. Review [permissions documentation](https://github.com/doug-mclelland/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements).
 
 ```text
 Build (Managed Image) step failed: Error getting Managed Image '/subscriptions/.../providers/Microsoft.Compute/images/mymanagedmg1': Error getting managed image (...): compute.ImagesClient#Get: Failure responding to request: StatusCode=403 -- Original Error: autorest/azure: Service returned an error. Status=403 Code="AuthorizationFailed" Message="The client '......' with object id '......' does not have authorization to perform action 'Microsoft.Compute/images/read' over scope 
 ```
 Cause: This happens due to missing permissions
 
-Action: Ensure AIB has permissions to the source image\SIG resource group, distribution image\SIG resource, and the storage account\container\blob that the File customizer is accessing. Review [permissions documentation](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements).
+Action: Ensure AIB has permissions to the source image\SIG resource group, distribution image\SIG resource, and the storage account\container\blob that the File customizer is accessing. Review [permissions documentation](https://github.com/doug-mclelland/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements).
 
 
 ```text
@@ -380,7 +380,7 @@ Action: Rerun build
 ```
 Cause: Permissions
 
-Action: Recheck that AIB has all permissions it requires, review [networking permissions](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements).
+Action: Recheck that AIB has all permissions it requires, review [networking permissions](https://github.com/doug-mclelland/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements).
 
 
 ```text
@@ -450,7 +450,7 @@ Action: Increase VM size, or add 60s PowerShell sleep customization.
 ```
 Cause: This means the image customization worked fine, which is why you do not see any errors in the customization.log, but AIB timed out waiting for the image to create in the SIG or Image, this could be that the image creation time exceeded the total buildTimeinMinutes, or AIB did not have permissions to create the image. 
 
-Action: Whilst AIB timed out, the image may still be replicating, you should check the SIG iamage version. If the image is not created at all, make sure you have granted [permissions for the distribution resource group](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#allowing-aib-to-distribute-images). If they are correct, increase the [buildTimeoutInMinutes](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/image-builder-json#properties-buildtimeoutinminutes).
+Action: Whilst AIB timed out, the image may still be replicating, you should check the SIG iamage version. If the image is not created at all, make sure you have granted [permissions for the distribution resource group](https://github.com/doug-mclelland/azvmimagebuilder/blob/master/aibPermissions.md#allowing-aib-to-distribute-images). If they are correct, increase the [buildTimeoutInMinutes](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/image-builder-json#properties-buildtimeoutinminutes).
 
 ```text
  azure-arm: Get-Service : Cannot find any service with service name 'WindowsAzureTelemetryService'.

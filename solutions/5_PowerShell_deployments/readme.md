@@ -2,7 +2,7 @@
 
 Most of the examples for Azure VM Image Builder (AIB) using the Azure CLI, this example shows how you can use PowerShell to do the same.
 
-This walk through is based off the [Create a Windows Custom Image from an Azure Platform Vanilla OS Image Quick Start](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image), that is deployed using Azure CLI.
+This walk through is based off the [Create a Windows Custom Image from an Azure Platform Vanilla OS Image Quick Start](https://github.com/doug-mclelland/azvmimagebuilder/tree/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image), that is deployed using Azure CLI.
 
 The main key difference is that we use an ARM template with the AIB template nested inside, this simplifies deploying the AIB Configuration Template, and gives you other benefits for free, such as variables and parameter inputs etc. You can also pass parameters from the commandline too, which you will see here.
 
@@ -76,7 +76,7 @@ New-AzRoleAssignment -ObjectId ef511139-6170-438e-a6e1-763dc31bdf74 -Scope /subs
 # Configure the Image Template
 This command will download and update the template with the parameters specified earlier.
 ```powerShell
-$templateUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/5_PowerShell_deployments/armTemplateWin.json"
+$templateUrl="https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/solutions/5_PowerShell_deployments/armTemplateWin.json"
 $templateFilePath = "armTemplateWin.json"
 
 Invoke-WebRequest -Uri $templateUrl -OutFile $templateFilePath -UseBasicParsing

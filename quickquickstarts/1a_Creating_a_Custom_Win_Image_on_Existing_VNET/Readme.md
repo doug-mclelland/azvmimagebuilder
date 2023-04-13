@@ -1,6 +1,6 @@
 # Create a Windows Image allowing access to an existing Azure VNET
 
-> **MAY 2020 SERVICE ALERT** - Existing users, please ensure you are compliant this [Service Alert by 26th May!!!](https://github.com/danielsollondon/azvmimagebuilder#service-update-may-2020-action-needed-by-26th-may---please-review)
+> **MAY 2020 SERVICE ALERT** - Existing users, please ensure you are compliant this [Service Alert by 26th May!!!](https://github.com/doug-mclelland/azvmimagebuilder#service-update-may-2020-action-needed-by-26th-may---please-review)
 
 This article is to show you how you can create a basic customized image using the Azure VM Image Builder, which has access to existing resources on a VNET. For the end to end example, the build VM will be deployed on to a VNET you specify in your subscription, either an existing one, or a new one. Using this model means the image builder service does not require any public network connectivity.
 
@@ -16,7 +16,7 @@ This covers using mutliple customizations to illustrate some high level function
 
 This walk through is intended to be a copy and paste exercise, and will provide you with a custom Win Server image (AIB also supports client images), showing you how you can easily create a custom image.
 
-> Note! Azure Image Builder automatically runs sysprep to generalize the image, this is a generic sysprep command, which you can [overide](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#vms-created-from-aib-images-do-not-create-successfully) if you are aware of more favorable settings. However, for *Windows there are limits on how many times (8), an image can be sysprep'd*, see [here](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) for more details. Therefore exercise caution on how many times you layer customizations.
+> Note! Azure Image Builder automatically runs sysprep to generalize the image, this is a generic sysprep command, which you can [overide](https://github.com/doug-mclelland/azvmimagebuilder/blob/master/troubleshootingaib.md#vms-created-from-aib-images-do-not-create-successfully) if you are aware of more favorable settings. However, for *Windows there are limits on how many times (8), an image can be sysprep'd*, see [here](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation#limits-on-how-many-times-you-can-run-sysprep) for more details. Therefore exercise caution on how many times you layer customizations.
 
 
 ## Step 1 : Enable Prereqs
@@ -108,18 +108,18 @@ $virtualNetwork= Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $vnetRg
  
 $virtualNetwork | Set-AzVirtualNetwork 
 ```
-For more information on image builder networking, please review this [document](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibNetworking.md#networking-with-azure-vm-image-builder).
+For more information on image builder networking, please review this [document](https://github.com/doug-mclelland/azvmimagebuilder/blob/master/aibNetworking.md#networking-with-azure-vm-image-builder).
 
 ## Step 2 : Modify the Example template and create role for AIB
 This command will download and update the template with the parameters specified earlier.
 ```powerShell
-$templateUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1a_Creating_a_Custom_Win_Image_on_Existing_VNET/existingVNETWindows.json"
+$templateUrl="https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/quickquickstarts/1a_Creating_a_Custom_Win_Image_on_Existing_VNET/existingVNETWindows.json"
 $templateFilePath = "existingVNETWindows.json"
 
-$aibRoleNetworkingUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json"
+$aibRoleNetworkingUrl="https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json"
 $aibRoleNetworkingPath = "aibRoleNetworking.json"
 
-$aibRoleImageCreationUrl="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
+$aibRoleImageCreationUrl="https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
 $aibRoleImageCreationPath = "aibRoleImageCreation.json"
 
 # download configs
@@ -183,7 +183,7 @@ New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $imag
 New-AzRoleAssignment -ObjectId $idenityNamePrincipalId -RoleDefinitionName $networkRoleDefName -Scope "/subscriptions/$subscriptionID/resourceGroups/$vnetRgName"
 
 ```
-For more information on image builder permissions, please review this [document](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements).
+For more information on image builder permissions, please review this [document](https://github.com/doug-mclelland/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements).
 
 
 # Submit the template

@@ -27,7 +27,7 @@
           "value": "ProdShellScript"
         },
         "customizescriptpath": {
-          "value": "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testscript.sh"
+          "value": "https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/testscript.sh"
         },
         "managedImageResGroupId": {
           "value": "/subscriptions/<subid>/resourceGroups/<rgname>/providers/Microsoft.Compute/images/"

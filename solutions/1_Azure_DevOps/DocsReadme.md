@@ -77,7 +77,7 @@ The source images must be of the supported Image Builder OS's. You can choose ex
 ```json
 /subscriptions/$subscriptionID/resourceGroups/$sigResourceGroup/providers/Microsoft.Compute/galleries/$sigName/images/$imageDefName/versions/<versionNumber>
 ```
-If you need to get the latest SIG version, you can have a AZ PowerShell / AZ CLI task before that will get the latest version and set a DevOps variable, so you can use it in the Az VM Image Builder DevOps task, please see [here](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/8_Getting_Latest_SIG_Version_ResID#getting-the-latest-image-version-resourceid-from-shared-image-gallery) for examples.
+If you need to get the latest SIG version, you can have a AZ PowerShell / AZ CLI task before that will get the latest version and set a DevOps variable, so you can use it in the Az VM Image Builder DevOps task, please see [here](https://github.com/doug-mclelland/azvmimagebuilder/tree/master/solutions/8_Getting_Latest_SIG_Version_ResID#getting-the-latest-image-version-resourceid-from-shared-image-gallery) for examples.
 
 * (Marketplace) Base Image
 There is a drop downlist of popular images, these will always use the 'latest' version of the supported OS's. 
@@ -172,7 +172,7 @@ sudo rm -R "/tmp/AppsAndImageBuilderLinux"
 ```
 
 #### Total length of image build
-This cannot be changed in the DevOps pipeline task yet, so it uses the default of 240mins. If you want to increase the '[buildTimeoutInMinutes](https://github.com/danielsollondon/azvmimagebuilder/blob/2834d0fcbc3e0a004b247f24692b64f6ef661dac/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json#L12)', then you can use an AZ CLI task in the Release Pipeline, and configure this to copy down a template, and submit it, doing something similar to this [solution](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder).
+This cannot be changed in the DevOps pipeline task yet, so it uses the default of 240mins. If you want to increase the '[buildTimeoutInMinutes](https://github.com/doug-mclelland/azvmimagebuilder/blob/2834d0fcbc3e0a004b247f24692b64f6ef661dac/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json#L12)', then you can use an AZ CLI task in the Release Pipeline, and configure this to copy down a template, and submit it, doing something similar to this [solution](https://github.com/doug-mclelland/azvmimagebuilder/tree/master/solutions/4_Using_ENV_Variables#using-environment-variables-and-parameters-with-image-builder).
 
 
 #### Storage Account
@@ -261,7 +261,7 @@ No, we generate a unique template name, then destroy it after.
 * If there is a build failure the DevOps task will not delete the staging resource group, this is so you can access the staging resource group, that contains the build customization log.
 * You will see an error in the DevOps Log for the VM Image Builder task, and see the customization.log location, as per below:
 ![alt text](./devOpsTaskError.png "devOps Error")
-* Review the [troubleshooting guide](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md) to see common issues and resolutions. 
+* Review the [troubleshooting guide](https://github.com/doug-mclelland/azvmimagebuilder/blob/master/troubleshootingaib.md) to see common issues and resolutions. 
 * After investigating the failure, to delete the staging resource group, delete the Image Template Resource artifact, this is prefixed with 't_', and can be found in the DevOps task build log:
 
 ```text

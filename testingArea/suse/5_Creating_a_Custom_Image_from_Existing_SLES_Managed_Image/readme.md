@@ -100,7 +100,7 @@ az sig image-definition create \
 ```bash
 # download the example and configure it with your vars
 
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testingArea/suse/5_Creating_a_Custom_Image_from_Existing_SLES_Managed_Image/SLESImageTemplateforReCustomization.json -o SLESImageTemplateforReCustomization.json
+curl https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/testingArea/suse/5_Creating_a_Custom_Image_from_Existing_SLES_Managed_Image/SLESImageTemplateforReCustomization.json -o SLESImageTemplateforReCustomization.json
 
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" SLESImageTemplateforReCustomization.json
 sed -i -e "s/<rgName>/$sigResourceGroup/g" SLESImageTemplateforReCustomization.json
@@ -211,4 +211,4 @@ az group delete -n $sigResourceGroup -y
     ```
 
 * Want to try more???
-* Image Builder does support deployment through Azure Resource Manager, see here in the repo for [examples](https://github.com/danielsollondon/azvmimagebuilder/tree/master/armTemplates), you will also see how you can use a RHEL ISO source too, and manu other capabilities.
+* Image Builder does support deployment through Azure Resource Manager, see here in the repo for [examples](https://github.com/doug-mclelland/azvmimagebuilder/tree/master/armTemplates), you will also see how you can use a RHEL ISO source too, and manu other capabilities.

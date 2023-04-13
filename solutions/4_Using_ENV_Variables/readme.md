@@ -30,7 +30,7 @@ These are just some options:
 2. Store a script in Azure Storage that sets environment variables, then download this into the VM, and execute inside the customizers.
 3. Using Azure DevOps, you can do:
     * Use AZ CLI task, use a parameterized ARM Template, and use the [DevOps pipeline variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch) from the commandline.
-    * Use a repo to store a script that sets global environment variables, then using the Azure VM [Image Builder DevOps Task](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/1_Azure_DevOps#documentation-for-the-azure-vm-image-builder-devops-task), this will be dropped into the VM. 
+    * Use a repo to store a script that sets global environment variables, then using the Azure VM [Image Builder DevOps Task](https://github.com/doug-mclelland/azvmimagebuilder/tree/master/solutions/1_Azure_DevOps#documentation-for-the-azure-vm-image-builder-devops-task), this will be dropped into the VM. 
 
 >>Note! When thinking about these options, consider the security aspects, for example, parameters can be seen in AIB configuration templates.
 
@@ -87,7 +87,7 @@ targetOS=MoonlightOS
 ### Step 2 Submit AIB Template from CmdLine, passing in params
 ```bash
 
-templateUri='https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/4_Using_ENV_Variables/devOpsEnvTemplate.json'
+templateUri='https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/solutions/4_Using_ENV_Variables/devOpsEnvTemplate.json'
 
  
 

@@ -70,7 +70,7 @@ az role assignment create \
 ```bash
 # download the example and configure it with your vars
 
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/testingArea/suse/0_Creating_a_Custom_SLES_Managed_Image/SLESImageTemplateLinux.json -o SLESImageTemplateLinux.json
+curl https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/testingArea/suse/0_Creating_a_Custom_SLES_Managed_Image/SLESImageTemplateLinux.json -o SLESImageTemplateLinux.json
 
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" SLESImageTemplateLinux.json
 sed -i -e "s/<rgName>/$imageResourceGroup/g" SLESImageTemplateLinux.json
@@ -151,4 +151,4 @@ az group delete -n $imageResourceGroup
 az vm image list --offer SLES --publisher SUSE --sku 15 --all --output table
 ```
 * Want to try more???
-* Image Builder does support deployment through Azure Resource Manager, see here in the repo for [examples](https://github.com/danielsollondon/azvmimagebuilder/tree/master/armTemplates), you will also see how you can use a RHEL ISO source too, and manu other capabilities.
+* Image Builder does support deployment through Azure Resource Manager, see here in the repo for [examples](https://github.com/doug-mclelland/azvmimagebuilder/tree/master/armTemplates), you will also see how you can use a RHEL ISO source too, and manu other capabilities.

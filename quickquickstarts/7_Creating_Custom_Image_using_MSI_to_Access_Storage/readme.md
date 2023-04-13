@@ -1,6 +1,6 @@
 # Create a Custom Image that will use an Azure User-Assigned Managed Identity to seemlessly access files Azure Storage 
 
-> **MAY 2020 SERVICE ALERT** - Existing users, please ensure you are compliant this [Service Alert by 26th May!!!](https://github.com/danielsollondon/azvmimagebuilder#service-update-may-2020-action-needed-by-26th-may---please-review)
+> **MAY 2020 SERVICE ALERT** - Existing users, please ensure you are compliant this [Service Alert by 26th May!!!](https://github.com/doug-mclelland/azvmimagebuilder#service-update-may-2020-action-needed-by-26th-may---please-review)
 
 AIB supports using scripts, or copying files from multiple locations, such as GitHub and Azure storage etc. 
 
@@ -11,7 +11,7 @@ In addition, you will not grant permissions to the AIB Service Principal, the us
 
 In the example below, you will create two resource groups, one will be used for the custom image created, and the other one will just host an Azure Storage Account, that includes a scipt file. You will create a user-assigned identity, this will be used by AIB to distribute the image, and then grant the user identity read permissions on the script file, and pass that identity to Image Builder. 
 
->>> Note! A PowerShell version of this quickstart is in development [here](https://github.com/danielsollondon/azvmimagebuilder/tree/master/testingArea/7_Creating_Custom_Win_Image_using_MSI_to_Access_Storage), expect this to be released v soon.
+>>> Note! A PowerShell version of this quickstart is in development [here](https://github.com/doug-mclelland/azvmimagebuilder/tree/master/testingArea/7_Creating_Custom_Win_Image_using_MSI_to_Access_Storage), expect this to be released v soon.
 
 Here is a short video on how the example below works.
 
@@ -100,7 +100,7 @@ imgBuilderCliId=$(az identity show -g $imageResourceGroup -n $idenityName | grep
 imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$idenityName
 
 # download preconfigured role definition example
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
+curl https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
 
 imageRoleDefName="Azure Image Builder Image Def"$(date +'%s')
 
@@ -164,7 +164,7 @@ az storage container create -n $scriptStorageAccContainer --fail-on-exist --acco
 az storage blob copy start --destination-blob customizeScript.sh \
                            --destination-container $scriptStorageAccContainer \
                            --account-name $scriptStorageAcc \
-                           --source-uri https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh
+                           --source-uri https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/quickquickstarts/customizeScript.sh
 ## wait a minute
 
 # assign the identity permissions to the storage account, so it can read the script blob
@@ -179,7 +179,7 @@ az role assignment create \
 ```bash
 # download the example and configure it with your vars
 
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage/helloImageTemplateMsi.json -o helloImageTemplateMsi.json
+curl https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage/helloImageTemplateMsi.json -o helloImageTemplateMsi.json
 
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" helloImageTemplateMsi.json
 sed -i -e "s/<rgName>/$imageResourceGroup/g" helloImageTemplateMsi.json

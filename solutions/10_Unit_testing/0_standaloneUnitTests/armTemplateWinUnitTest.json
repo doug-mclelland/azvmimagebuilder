@@ -40,7 +40,7 @@
                     {
                         "type": "PowerShell",
                         "name": "InstallFsLogic",
-                        "scriptUri": "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/7_Unit_testing/0_standaloneUnitTests/install.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/solutions/7_Unit_testing/0_standaloneUnitTests/install.ps1"
                     },
                     {
                         "type": "WindowsRestart",
@@ -50,7 +50,7 @@
                     {
                         "type": "PowerShell",
                         "name": "UnitTests",
-                        "scriptUri": "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/7_Unit_testing/0_standaloneUnitTests/unitTests.ps1"
+                        "scriptUri": "https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/solutions/7_Unit_testing/0_standaloneUnitTests/unitTests.ps1"
                     }
 
             ],

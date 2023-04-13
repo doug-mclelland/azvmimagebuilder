@@ -1,6 +1,6 @@
 # Create a Custom Linux Image allowing access to an existing Azure VNET
 
-> **MAY 2020 SERVICE ALERT** - Existing users, please ensure you are compliant this [Service Alert by 26th May!!!](https://github.com/danielsollondon/azvmimagebuilder#service-update-may-2020-action-needed-by-26th-may---please-review)
+> **MAY 2020 SERVICE ALERT** - Existing users, please ensure you are compliant this [Service Alert by 26th May!!!](https://github.com/doug-mclelland/azvmimagebuilder#service-update-may-2020-action-needed-by-26th-may---please-review)
 
 This article is to show you how you can create a basic customized image using the Azure VM Image Builder, which has access to existing resources on a VNET. For the end to end example, the build VM will be deployed on to a VNET you specify in your subscription, either an existing one, or a new one. Using this model means the image builder service does not require any public network connectivity.
 
@@ -113,16 +113,16 @@ az network vnet subnet update \
   --disable-private-link-service-network-policies true 
 ```
 
-For more information on image builder networking, please review this [document](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibNetworking.md#networking-with-azure-vm-image-builder).
+For more information on image builder networking, please review this [document](https://github.com/doug-mclelland/azvmimagebuilder/blob/master/aibNetworking.md#networking-with-azure-vm-image-builder).
 
 ## Step 2 : Modify the Example template and create role for AIB
 
 ```bash
 # download the example and configure it with your vars
 
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1a_Creating_a_Custom_Linux_Image_on_Existing_VNET/existingVNETLinux.json -o existingVNETLinux.json
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json -o aibRoleNetworking.json
-curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
+curl https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/quickquickstarts/1a_Creating_a_Custom_Linux_Image_on_Existing_VNET/existingVNETLinux.json -o existingVNETLinux.json
+curl https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json -o aibRoleNetworking.json
+curl https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json -o aibRoleImageCreation.json
 
 sed -i -e "s/<subscriptionID>/$subscriptionID/g" existingVNETLinux.json
 sed -i -e "s/<rgName>/$imageResourceGroup/g" existingVNETLinux.json
@@ -189,7 +189,7 @@ az role assignment create \
     --scope /subscriptions/$subscriptionID/resourceGroups/$vnetRgName
 
 ```
-For more information on image builder permissions, please review this [document](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements).
+For more information on image builder permissions, please review this [document](https://github.com/doug-mclelland/azvmimagebuilder/blob/master/aibPermissions.md#azure-vm-image-builder-permissions-explained-and-requirements).
 
 ## Step 3 : Create the Image
 

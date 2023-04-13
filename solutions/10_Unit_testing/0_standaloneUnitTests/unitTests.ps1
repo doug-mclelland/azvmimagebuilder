@@ -4,8 +4,8 @@
   Try
   {
    # set test file location
-      $Testfxlogixinstall = 'https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/7_Unit_testing/0_standaloneUnitTests/fslogixTests/Test-fxlogix-install.ps1'
-      $TestfxlogixinstallTests = 'https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/7_Unit_testing/0_standaloneUnitTests/fslogixTests/Test-fxlogix-install.Tests.ps1'
+      $Testfxlogixinstall = 'https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/solutions/7_Unit_testing/0_standaloneUnitTests/fslogixTests/Test-fxlogix-install.ps1'
+      $TestfxlogixinstallTests = 'https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/solutions/7_Unit_testing/0_standaloneUnitTests/fslogixTests/Test-fxlogix-install.Tests.ps1'
   
   
       # install Pester, and run install unit tests

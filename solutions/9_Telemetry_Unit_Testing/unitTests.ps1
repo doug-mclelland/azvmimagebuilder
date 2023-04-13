@@ -39,8 +39,8 @@ Try
 
 
  # set test file location
-    $TestWebAppInstall = 'https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/9_Telemetry_Unit_Testing/webAppTests/Test-webAppInstall-install.ps1'
-    $TestWebAppInstallTests = 'https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/9_Telemetry_Unit_Testing/webAppTests/Test-webAppInstall-install.Tests.ps1'
+    $TestWebAppInstall = 'https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/solutions/9_Telemetry_Unit_Testing/webAppTests/Test-webAppInstall-install.ps1'
+    $TestWebAppInstallTests = 'https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/solutions/9_Telemetry_Unit_Testing/webAppTests/Test-webAppInstall-install.Tests.ps1'
 
 
     # install Pester, and run install unit tests

@@ -106,7 +106,7 @@ At the VSTS home page, 'Create Project', call it 'AppsAndImageBuilder'.
 ## Create Repo
 * Go to 'Repos', select initialize
 * Create a directory in the Repo, `webApp`
-* Copy the raw contents of the two files in the `webApp` directory, from the [quick starts repo](https://github.com/danielsollondon/azvmimagebuilder/tree/master/solutions/1_Azure_DevOps/webApp). Note, remember to switch to 'Raw' content view!
+* Copy the raw contents of the two files in the `webApp` directory, from the [quick starts repo](https://github.com/doug-mclelland/azvmimagebuilder/tree/master/solutions/1_Azure_DevOps/webApp). Note, remember to switch to 'Raw' content view!
 
 ## Create a Release Pipeline
 * Go to 'Pipelines' > Releases

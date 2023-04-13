@@ -9,9 +9,9 @@ We are making key changes to Azure Image Builder security model, this will be a 
 **Why?** - As well as allow us to prepare for future features, we are simplifying and improving the AIB security model, so instead of you granting permissions the AIB Service Principal Name, to build and distribute custom images, and then a user identity to you will now use a single user identity to get access to other Azure resources.
 
 ## Actions Required
-### [1. Create a user assigned 'identity'](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#creating-an-azure-user-assigned-managed-identity)
-### 2. Grant the permissions to the user assigned identity, ([AZ CLI](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#az-cli-examples), [PowerShell](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#azure-powershell-examples)) to the resource groups
-### 3. [Update your JSON templates with the 'identity'](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json#L30), adding this property to the template:
+### [1. Create a user assigned 'identity'](https://github.com/doug-mclelland/azvmimagebuilder/blob/master/aibPermissions.md#creating-an-azure-user-assigned-managed-identity)
+### 2. Grant the permissions to the user assigned identity, ([AZ CLI](https://github.com/doug-mclelland/azvmimagebuilder/blob/master/aibPermissions.md#az-cli-examples), [PowerShell](https://github.com/doug-mclelland/azvmimagebuilder/blob/master/aibPermissions.md#azure-powershell-examples)) to the resource groups
+### 3. [Update your JSON templates with the 'identity'](https://github.com/doug-mclelland/azvmimagebuilder/blob/master/quickquickstarts/0_Creating_a_Custom_Windows_Managed_Image/helloImageTemplateWin.json#L30), adding this property to the template:
 
 ```
     "identity": {
@@ -33,7 +33,7 @@ imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/p
 
 ### 5. Remove the old version of the template that does not contain property.
 
-If you want to see end to end examples, all the [quick starts](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts) and [Azure Docs](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/image-builder-overview) have been updated with user assigned idenity support.
+If you want to see end to end examples, all the [quick starts](https://github.com/doug-mclelland/azvmimagebuilder/tree/master/quickquickstarts) and [Azure Docs](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/image-builder-overview) have been updated with user assigned idenity support.
 
 ### 6. Remove previously granted role assignments from the SPN
 ```powershell
@@ -105,6 +105,6 @@ echo subnetResourceId
 * **Why is there a date of 1st June on the [Azure Docs page](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/image-builder-overview#permissions) for this change?** We needed to bring the change forward, due to dependencies, the page is being updated on 19th May, but the date for rejection of templates without 'identity' is 26th May.
 
 * **I am new user, do I need to do anything?**
-No, all [Azure docs for Images Builder](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/image-builder-overview), and this [GitHub repo quickstarts](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts) have been updated.
+No, all [Azure docs for Images Builder](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/image-builder-overview), and this [GitHub repo quickstarts](https://github.com/doug-mclelland/azvmimagebuilder/tree/master/quickquickstarts) have been updated.
 
 

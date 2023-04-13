@@ -16,7 +16,7 @@
             {
                 "type": "Shell",
                 "name": "RunScripts01",
-                "script": "https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/customizeScript.sh"
+                "script": "https://raw.githubusercontent.com/doug-mclelland/azvmimagebuilder/master/quickquickstarts/customizeScript.sh"
             },
             {
                 "type": "Shell",

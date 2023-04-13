@@ -1,6 +1,6 @@
 # Networking with Azure VM Image Builder
 
-> **MAY 2020 SERVICE ALERT** - Existing users, please ensure you are compliant this [Service Alert by 26th May!!!](https://github.com/danielsollondon/azvmimagebuilder#service-update-may-2020-action-needed-by-26th-may---please-review)
+> **MAY 2020 SERVICE ALERT** - Existing users, please ensure you are compliant this [Service Alert by 26th May!!!](https://github.com/doug-mclelland/azvmimagebuilder#service-update-may-2020-action-needed-by-26th-may---please-review)
 
 When the Azure Image Builder (AIB) runs, it starts Packer within the service, a build VM will be deployed into your subscription, into the AIB staging resource group, prefixed 'IT_', this is customized and turned into an image. 
 
@@ -28,14 +28,14 @@ If you specify a VNET and subnet, then AIB will deploy the build VM to your chos
 When the VM is deployed, a public IP is NOT deployed, communication from the AIB service to the build VM uses Azure Private Link technology instead.
 
 We have end to end examples now you can try:
-1. [Windows](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/1a_Creating_a_Custom_Win_Image_on_Existing_VNET#create-a-windows-linux-image-allowing-access-to-an-existing-azure-vnet)
-2. [Linux](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/1a_Creating_a_Custom_Linux_Image_on_Existing_VNET#create-a-custom-linux-image-allowing-access-to-an-existing-azure-vnet)
+1. [Windows](https://github.com/doug-mclelland/azvmimagebuilder/tree/master/quickquickstarts/1a_Creating_a_Custom_Win_Image_on_Existing_VNET#create-a-windows-linux-image-allowing-access-to-an-existing-azure-vnet)
+2. [Linux](https://github.com/doug-mclelland/azvmimagebuilder/tree/master/quickquickstarts/1a_Creating_a_Custom_Linux_Image_on_Existing_VNET#create-a-custom-linux-image-allowing-access-to-an-existing-azure-vnet)
 
 ### What is Azure Private Link?
 Azure Private Link provides private connectivity from a virtual network to Azure platform as a service (PaaS), customer-owned, or Microsoft partner services. It simplifies the network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public internet. For more details, review the Private Link [documentation](https://docs.microsoft.com/en-us/azure/private-link/).
 
 ### Permissions AIB requires to use an existing VNET
-The AIB SPN will require specific permissions to use an existing VNET, please review this [documentation](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#allowing-aib-to-customize-images-on-your-existing-vnets).
+The AIB SPN will require specific permissions to use an existing VNET, please review this [documentation](https://github.com/doug-mclelland/azvmimagebuilder/blob/master/aibPermissions.md#allowing-aib-to-customize-images-on-your-existing-vnets).
 
 ### What is deployed during an image build?
 Using an existing VNET means AIB has to deploy an additional VM (proxy VM) and an Azure Load Balancer (ALB) that is connected to the Private Link. Traffic from the AIB service goes across the private link to the ALB, then the ALB communicates to the proxy VM using, port 60001 is for Linux OS's, and 60000 for Windows OS's. The proxy forwards commands to the build VM using port 22 for Linux OS's, or 5986 for Windows OS's.
@@ -62,15 +62,15 @@ Private Link service requires an IP from the given vnet and subnet. Currently, A
 
 ## Checklist for using your VNET with AIB
 1. Allow Azure Load Balancer (ALB) to communicate with the proxy VM in an NSG
-    * [AZ CLI Example](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/1a_Creating_a_Custom_Linux_Image_on_Existing_VNET#add-nsg-rule-to-allow-the-aib-deployed-azure-load-balancer-to-communicate-with-the-proxy-vm)
-    * [PowerShell Example](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/1a_Creating_a_Custom_Win_Image_on_Existing_VNET#add-nsg-rule-to-allow-the-aib-deployed-azure-load-balancer-to-communicate-with-the-proxy-vm)
+    * [AZ CLI Example](https://github.com/doug-mclelland/azvmimagebuilder/tree/master/quickquickstarts/1a_Creating_a_Custom_Linux_Image_on_Existing_VNET#add-nsg-rule-to-allow-the-aib-deployed-azure-load-balancer-to-communicate-with-the-proxy-vm)
+    * [PowerShell Example](https://github.com/doug-mclelland/azvmimagebuilder/tree/master/quickquickstarts/1a_Creating_a_Custom_Win_Image_on_Existing_VNET#add-nsg-rule-to-allow-the-aib-deployed-azure-load-balancer-to-communicate-with-the-proxy-vm)
 2. Disable Private Service Policy on subnet
-    * [AZ CLI Example](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/1a_Creating_a_Custom_Linux_Image_on_Existing_VNET#disable-private-service-policy-on-subnet)
-    * [PowerShell Example](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/1a_Creating_a_Custom_Win_Image_on_Existing_VNET#disable-private-service-policy-on-subnet)
+    * [AZ CLI Example](https://github.com/doug-mclelland/azvmimagebuilder/tree/master/quickquickstarts/1a_Creating_a_Custom_Linux_Image_on_Existing_VNET#disable-private-service-policy-on-subnet)
+    * [PowerShell Example](https://github.com/doug-mclelland/azvmimagebuilder/tree/master/quickquickstarts/1a_Creating_a_Custom_Win_Image_on_Existing_VNET#disable-private-service-policy-on-subnet)
 3. Allow AIB to create an ALB and add VMs to the VNET
-    * [AZ CLI Example](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#setting-aib-spn-permissions-to-allow-it-to-use-an-existing-vnet)
-    * [PowerShell Example](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#setting-aib-spn-permissions-to-allow-it-to-use-an-existing-vnet-1)
+    * [AZ CLI Example](https://github.com/doug-mclelland/azvmimagebuilder/blob/master/aibPermissions.md#setting-aib-spn-permissions-to-allow-it-to-use-an-existing-vnet)
+    * [PowerShell Example](https://github.com/doug-mclelland/azvmimagebuilder/blob/master/aibPermissions.md#setting-aib-spn-permissions-to-allow-it-to-use-an-existing-vnet-1)
 4. Allow AIB to read/write source images and create images
-    * [AZ CLI Example](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#setting-aib-spn-permissions-to-use-source-custom-image-and-distribute-a-custom-image)
-    * [PowerShell Example](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md#setting-aib-spn-permissions-to-use-source-custom-image-and-distribute-a-custom-image-1)
+    * [AZ CLI Example](https://github.com/doug-mclelland/azvmimagebuilder/blob/master/aibPermissions.md#setting-aib-spn-permissions-to-use-source-custom-image-and-distribute-a-custom-image)
+    * [PowerShell Example](https://github.com/doug-mclelland/azvmimagebuilder/blob/master/aibPermissions.md#setting-aib-spn-permissions-to-use-source-custom-image-and-distribute-a-custom-image-1)
 5. Ensure you are using VNET in the same region as the AIB service region.

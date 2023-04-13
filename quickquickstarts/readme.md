@@ -2,7 +2,7 @@
 
 Welcome to the Azure VM Image Builder QuickStarts, these are some key features you can test using Azure CloudShell in the Portal, Azure CLI, PowerShell.
 
-> **MAY 2020 SERVICE ALERT** - Existing users, please ensure you are compliant this [Service Alert by 26th May!!!](https://github.com/danielsollondon/azvmimagebuilder#service-update-may-2020-action-needed-by-26th-may---please-review)
+> **MAY 2020 SERVICE ALERT** - Existing users, please ensure you are compliant this [Service Alert by 26th May!!!](https://github.com/doug-mclelland/azvmimagebuilder#service-update-may-2020-action-needed-by-26th-may---please-review)
 
 **First time using Image Builder??** 
 
@@ -12,7 +12,7 @@ Get started with the short walkthrough video below, or go straight to the Quick 
 ](https://youtu.be/IgKARHm5Yus)
 
 **Second time using Image Builder??**  
-We constantly update features, see the [Latest Release Information](https://github.com/danielsollondon/azvmimagebuilder#latest-release-information)!
+We constantly update features, see the [Latest Release Information](https://github.com/doug-mclelland/azvmimagebuilder#latest-release-information)!
 
 We are always adding new quick starts, but these are some key examples:
 
@@ -29,9 +29,9 @@ We are always adding new quick starts, but these are some key examples:
 6. [Create a Custom Linux Image and Export to VHD](./4_Creating_a_Custom_Linux_Image_to_VHD/readme.md)
 
 **Permissions Explained and Troubleshooting**
-* [Permissions Explained](https://github.com/danielsollondon/azvmimagebuilder/blob/master/aibPermissions.md)>>>>>
+* [Permissions Explained](https://github.com/doug-mclelland/azvmimagebuilder/blob/master/aibPermissions.md)>>>>>
 
-* [Troubleshooting Guide & Log Locations](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md)
+* [Troubleshooting Guide & Log Locations](https://github.com/doug-mclelland/azvmimagebuilder/blob/master/troubleshootingaib.md)
 
 ** Note: The quickstarts are designed to show you the different types of configuration you can have, many of these are supported on Windows and Linux, there will be more Windows examples soon!!
 
