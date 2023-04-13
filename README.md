@@ -2,6 +2,7 @@
 
 Get started now, this repo contains mutliple examples and test templates for Azure VM Image Builder (Public Preview).
 
+
 What is Image Builder??
 Get started with the short intro video below, or go straight to the Quick Starts below.
 
